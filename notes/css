@@ -1,0 +1,19 @@
+the box model:
+-- span is displayed inline
+-- p is displayed as a block
+
+-- display grid
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+
+-- order of the box, cascading
+content
+padding
+border
+margin
+
+the alternative box model is simpler
+-- width you see is the width you get
+.box {
+  box-sizing: border-box;
+}

@@ -1,3 +1,41 @@
-.trial {
-    color: blue;
+html, body {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    background-color: #282828;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+#keys_wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    gap: .5vw;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.key {
+    border-color: #fb4934;
+    background-color: #3c3836;
+    color: #fb4934;
+    border-width: .5vw;
+    border-style: solid;
+    text-align: center;
+    transition: all 0.07s;
+}
+
+.letter {
+    color: white;
+    font-size: xx-large;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #fb4934;
+    box-shadow: 0 0 10px #fb4934;
 }
