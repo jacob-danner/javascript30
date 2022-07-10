@@ -1,0 +1,21 @@
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #282828;
+}
+
+#clock {
+    background-color: grey;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.unit {
+    font-size: 7em;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+    background-color: #fb4934;
+}
