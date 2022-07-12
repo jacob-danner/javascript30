@@ -1,0 +1,37 @@
+:root {
+    --base: #ffc600;
+    --font: 50px;
+}
+
+body {
+    text-align: center;
+    background-color: #193549;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:lighter;
+    font-size: var(--font);
+}
+
+#block {
+    width: 10%;
+    height: 10%;
+    background-color: var(--base);
+}
+
+#block_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 100%
+}
+
+.highlight {
+    color: var(--base);
+}
+
+#forms {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
