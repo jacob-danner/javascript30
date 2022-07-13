@@ -1,0 +1,48 @@
+body {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------ */
+
+#header {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ----- */
+#img {
+    object-fit: contain;
+    width: 50%;
+}
+
+#group {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+#pane {
+    background-color: violet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+#tabBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    background-color: white;
+    
+}
+
+#content {
+    background-color: green;
+}
