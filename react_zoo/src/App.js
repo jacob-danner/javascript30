@@ -1,11 +1,15 @@
 import './App.css';
 import {Route, Routes, Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+
 import { Zoo } from './Zoo';
-import { Mammals } from './Mammals';
-import { useState } from 'react';
+import { Amphibians } from './categories/Amphibians';
+import { Birds } from './categories/Birds';
+import { Fish } from './categories/Fish';
+import { Mammals } from './categories/Mammals';
+import { Reptiles } from './categories/Reptiles';
 
 function App() {
-  const [isLoading, setLoading] = useState(true)
   
   async function get(amount) {
     let responses = []
@@ -41,17 +45,29 @@ function App() {
     }
   }
 
-  const animals = getAnimals()
+  const [isLoading, setLoading] = useState(true)
+  const [animals, setAnimals] = useState(undefined)
+
+  useEffect(async () => {
+    let animals = await getAnimals()
+    setLoading(false)
+    setAnimals(animals)
+  }, [])
 
   if (isLoading) {
     return <h1>Loading</h1>
   }
   return (
-      <Routes>
-        {console.log(animals)}
-        <Route path='/' element={<Zoo />} />
-        <Route path='mammals' element={<Mammals animals={animals.mammals} />} />
-      </Routes>
+
+        <Routes>
+          <Route path='/' element={<Zoo />} />
+          <Route path='mammals' element={<Mammals group={animals.mammals} />} />
+          <Route path='birds' element={<Birds group={animals.birds} />} />
+          <Route path='amphibians' element={<Amphibians group={animals.amphibians} />} />
+          <Route path='reptiles' element={<Reptiles group={animals.reptiles} />} />
+          <Route path='fish' element={<Fish group={animals.fish} />} />
+        </Routes>
+
   )
 }
 

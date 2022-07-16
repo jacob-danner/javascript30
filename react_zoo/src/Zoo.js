@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Nav } from "./Nav";
 
 export const Zoo = () => {
     return (
         <>
+            <Nav />
             <h1>Zoo</h1>
-            <Link to="/mammals">Mammals</Link>
         </>
     )
 }
