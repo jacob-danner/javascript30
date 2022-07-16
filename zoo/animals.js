@@ -27,13 +27,21 @@ function display(type, byType) {
     groupDiv.innerHTML = type
     let group = byType[type]
     let elements = group.map((animal) => {
-        let element = document.createElement('p', animal.name)
-        element.innerHTML = animal.name
-        element.setAttribute('class', animal.name)
-        return element
+        let name = document.createElement('p', animal.name)
+        name.innerHTML = animal.name
+        name.setAttribute('class', animal.name)
+        
+        let img = document.createElement('img')
+        img.setAttribute('src', animal.image_link)
+
+        return {name, img}
     })
-   
-    elements.forEach(el => groupDiv.appendChild(el))
+    elements.forEach(obj => {
+        groupDiv.appendChild(obj.name)
+        groupDiv.appendChild(obj.img)
+    })
+
+    // elements.forEach(el => groupDiv.appendChild(el))
 
     console.log(groupDiv)
     let root = document.getElementById('root')
@@ -43,7 +51,7 @@ function display(type, byType) {
 
 async function main() {
     try {
-        let animals = await get(20)
+        let animals = await get(30)
         var byType = sortByType(animals)
         
         for(type in byType) display(type, byType)

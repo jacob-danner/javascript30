@@ -17,3 +17,11 @@
 .fish {
     background-color: pink;
 }
+
+img {
+    width: 9rem;
+}
+
+#root {
+    display: flex;
+}
