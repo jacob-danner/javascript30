@@ -1,18 +1,24 @@
 import React from "react";
 import { AnimalCard } from "../AnimalCard";
-import { Nav } from "../Nav";
-import '../category.css'
+import { NavTab } from "../NavTab";
+
+import {Container, Row} from "react-bootstrap"
 
 export const Fish = (group) => {
     group = group.group
     
     return(
         <>
-            <Nav />
-            <h1>Fish</h1>
-            {group.map(el => {
-                return <AnimalCard animal={el} />
-            })}
+            <NavTab />
+            <Container>
+                <h1 className="text-center">Fish</h1>
+
+                <Row>
+                    {group.map(el => {
+                        return <AnimalCard animal={el} />
+                    })}
+                </Row>
+            </Container>
             
         </>
     )
