@@ -1,10 +1,10 @@
 import React from "react";
-import { Nav } from "./Nav";
+import { NavTab } from "./NavTab";
 
 export const Zoo = () => {
     return (
         <>
-            <Nav />
+            <NavTab />
             <h1>Zoo</h1>
         </>
     )

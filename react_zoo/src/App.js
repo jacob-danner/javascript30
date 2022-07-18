@@ -1,6 +1,7 @@
 import './App.css';
 import {Route, Routes, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Zoo } from './Zoo';
 import { Amphibians } from './categories/Amphibians';
@@ -35,7 +36,7 @@ function App() {
   
   async function getAnimals() {
     try {
-        let animals = await get(30)
+        let animals = await get(60)
         let byType = sortByType(animals)
         setLoading(false)
         return byType
