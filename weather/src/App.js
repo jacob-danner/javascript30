@@ -9,12 +9,12 @@ import { CityCard } from "./Components/CityCard";
 function App() {
   let KEY = 'bb9fea47a8834bd1a4f00712221907'
 
-  let cities = ['Des Moines', 'South Elgin']
+  let initialCities = ['Des Moines', 'South Elgin']
 
   let [loading, setLoading] = useState(true)
   let [weather, setWeather] = useState(undefined)
-
-
+  let [cities, setCities] = useState(initialCities)
+  let [len, setLen] = useState(cities.length)
 
   useEffect( () => {
     try {
@@ -27,16 +27,14 @@ function App() {
         })
 
         let responses = await Promise.all(promises)
-
         setWeather(responses)
         setLoading(false)
-
       }
       get()
     } catch (error) {
       console.log('error', error)
     }
-  }, [] )
+  }, [len] )
  
   if (loading) {
     return <h1>loading</h1>
@@ -44,7 +42,7 @@ function App() {
 
   return (
     <Container style={{height:'100%'}} >
-      <Header />
+      <Header cities={cities} setCities={setCities} setLen={setLen}/>
       {weather.map(cityInfo => {
         return(<CityCard info={cityInfo} />)
       })}
