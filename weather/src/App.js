@@ -1,5 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
+
 import { useEffect, useState } from "react";
 
+import { Header } from "./Components/Header";
 import { CityCard } from "./Components/CityCard";
 
 function App() {
@@ -10,22 +14,20 @@ function App() {
   let [loading, setLoading] = useState(true)
   let [weather, setWeather] = useState(undefined)
 
-  const getWeather = async (cities) => {
-    let responses = cities.map(async city => {
-      let req = `http://api.weatherapi.com/v1/current.json?key=${KEY}&q=${city}`
-      let res = await fetch(req)
-      let body = await res.json()
-      // BODY HERE IS GOOD. THE PROMISE ISSUE IS CAUSED BY THE MAP?
-      return body
-    })
-    console.log(responses)
-    return responses
-  }
+
 
   useEffect( () => {
     try {
       let get = async () => {
-        let responses = await getWeather(cities)
+        let promises = cities.map(async city => {
+          let req = `http://api.weatherapi.com/v1/current.json?key=${KEY}&q=${city}`
+          let res = await fetch(req)
+          let body = await res.json()
+          return body
+        })
+
+        let responses = await Promise.all(promises)
+
         setWeather(responses)
         setLoading(false)
 
@@ -34,20 +36,19 @@ function App() {
     } catch (error) {
       console.log('error', error)
     }
-    }, [] )
+  }, [] )
  
-  // let res = await fetch('http://api.weatherapi.com/v1/current.json?key=bb9fea47a8834bd1a4f00712221907&q=South Elgin')
-  // console.log(res.json())
   if (loading) {
     return <h1>loading</h1>
   }
 
   return (
-    <div className="App">
+    <Container style={{height:'100%'}} >
+      <Header />
       {weather.map(cityInfo => {
         return(<CityCard info={cityInfo} />)
       })}
-    </div>
+    </Container>
   );
 }
 
