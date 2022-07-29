@@ -1,0 +1,36 @@
+body {
+  background-color: #504945;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#quote {
+  width: 50%;
+}
+
+h2 {
+  color: #ebdbb2;
+  text-decoration: underline #fb4934;;
+}
+
+h3{
+  color: #fb4934
+}
+
+button {
+  background-color:#fb4934;
+  color: #ebdbb2;
+  font-size: large;
+  border: none;
+}
+
+#img-wrapper {
+  width: 50%;
+}
+
+#text {
+  height: 30%;
+}
